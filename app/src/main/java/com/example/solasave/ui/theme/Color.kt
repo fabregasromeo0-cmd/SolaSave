@@ -2,15 +2,13 @@ package com.example.solasave.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val SolarYellow = Color(0xFFFFD600)
+val SolarOrange = Color(0xFFFF9100)
+val EcoGreen = Color(0xFF2E7D32)
+val EcoLightGreen = Color(0xFF8BC34A)
+val DeepTeal = Color(0xFF004D40)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
-val Grey40 = Color(0xFF808080)
-val GreyDark2 = (0xFF2F4F4F)
-val BlueR10 =(0xFF4169E1)
-val Blue40=(0xFF0000FF)
-val Green=(0xFF2E7D32)
+val BackgroundLight = Color(0xFFF8F9FA)
+val BackgroundDark = Color(0xFF121212)
+val SurfaceLight = Color(0xFFFFFFFF)
+val SurfaceDark = Color(0xFF1E1E1E)
