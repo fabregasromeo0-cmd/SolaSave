@@ -1,0 +1,8 @@
+package com.example.solasave.data.models.weatherdata
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class CloudInfo(
+    val all: Int
+)
