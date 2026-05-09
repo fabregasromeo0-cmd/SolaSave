@@ -5,13 +5,13 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.solasave.ui.screens.ImpactScreen
 import com.example.solasave.ui.screens.authentication.ForgotPasswordScreen
 import com.example.solasave.ui.screens.authentication.LoginScreen
+import com.example.solasave.ui.screens.authentication.OnboardingScreen
 import com.example.solasave.ui.screens.authentication.SignupScreen
 import com.example.solasave.ui.screens.home.HomeScreen
 import com.example.solasave.ui.screens.onboarding.CalculatorScreen
-import com.example.solasave.ui.screens.onboarding.ImpactScreen
-import com.example.solasave.ui.screens.onboarding.OnboardingScreen
 
 @Composable
 fun AppNavigation(

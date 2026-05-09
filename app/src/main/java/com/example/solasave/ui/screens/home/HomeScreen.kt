@@ -38,13 +38,6 @@ fun HomeScreen(
                     IconButton({}) { Icon(Icons.Default.Person, null) }
                 }
             )
-        },
-        bottomBar = {
-            NavigationBar {
-                NavigationBarItem(true, {}, { Icon(Icons.Default.Home, null) }, label = { Text("Home") })
-                NavigationBarItem(false, { navController.navigate(ROUTES.Calculator.name) }, { Icon(Icons.Default.Add, null) }, label = { Text("Calculator") })
-                NavigationBarItem(false, { navController.navigate(ROUTES.Impact.name) }, { Icon(Icons.AutoMirrored.Filled.List, null) }, label = { Text("Impact") })
-            }
         }
     ) { padding ->
         Column(

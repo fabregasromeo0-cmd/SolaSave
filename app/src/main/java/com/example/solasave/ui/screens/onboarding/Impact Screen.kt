@@ -2,8 +2,7 @@ package com.example.solasave.ui.screens.onboarding
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,6 +14,7 @@ import androidx.navigation.NavHostController
 import com.airbnb.lottie.compose.*
 import com.example.solasave.R
 import com.example.solasave.ui.navigation.ROUTES
+import com.example.solasave.ui.screens.home.SolarViewModel
 
 @Composable
 fun OnboardingScreen(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -72,37 +72,46 @@ fun OnboardingScreen(navController: NavHostController, modifier: Modifier = Modi
 }
 
 @Composable
-fun ImpactScreen(navController: NavHostController, modifier: Modifier = Modifier) {
+fun ImpactScreen(navController: NavHostController, modifier: Modifier = Modifier, vm: SolarViewModel) {
+    val savings = vm.calculateSavings() * 30 * 12 * 5
+    val trees = (savings * 0.05).toInt()
+
     Column(
-        modifier = modifier.fillMaxSize().padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = modifier.fillMaxSize().padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
     ) {
         Spacer(Modifier.height(40.dp))
         Text(
             text = "Environmental Impact",
-            style = MaterialTheme.typography.headlineLarge,
+            style = MaterialTheme.typography.headlineMedium,
             color = MaterialTheme.colorScheme.secondary,
             fontWeight = FontWeight.Bold
         )
         
         Spacer(Modifier.height(32.dp))
         
-        ImpactCard("CO2 Reduction", "1,240 kg", "Equivalent to 50 trees planted", MaterialTheme.colorScheme.primaryContainer)
-        Spacer(Modifier.height(16.dp))
-        ImpactCard("Energy Generated", "450 kWh", "This month", MaterialTheme.colorScheme.secondaryContainer)
-    }
-}
-
-@Composable
-fun ImpactCard(title: String, value: String, subtitle: String, color: Color) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = color)
-    ) {
-        Column(Modifier.padding(24.dp)) {
-            Text(title, style = MaterialTheme.typography.titleMedium)
-            Text(value, style = MaterialTheme.typography.displaySmall, fontWeight = FontWeight.Bold)
-            Text(subtitle, style = MaterialTheme.typography.bodySmall)
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)
+        ) {
+            Column(Modifier.padding(24.dp)) {
+                Text("5-Year Potential Wealth", style = MaterialTheme.typography.titleMedium)
+                Text(
+                    "KSH ${String.format("%,.0f", savings)}",
+                    style = MaterialTheme.typography.displaySmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
         }
+        
+        Spacer(Modifier.height(24.dp))
+        
+        Text(
+            text = "🌍 Switching to solar in ${vm.selectedCounty} is equivalent to planting $trees trees over 5 years.",
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.Center
+        )
     }
 }
